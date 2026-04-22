@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package user;
 
-option go_package = "github.com/khbdev/what-food-proto/proto/user;userpb";
+option go_package = "github.com/khbdev/what-food-proto/proto/userpb;userpb";
 
 // =====================
 // ENUM
