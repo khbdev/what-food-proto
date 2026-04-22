@@ -1,1 +1,101 @@
-    
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/khbdev/what-food-proto/proto/user;userpb";
+
+// =====================
+// ENUM
+// =====================
+enum Role {
+  ROLE_UNSPECIFIED = 0;
+  ROLE_USER = 1;
+  ROLE_ADMIN = 2;
+}
+
+// =====================
+// MODEL
+// =====================
+message User {
+  uint64 id = 1;
+  string name = 2;
+  string phone = 3;
+  int32 age = 4;
+  string address = 5;
+  string email = 6;
+  string image = 7;
+  Role role = 8;
+
+  string created_at = 9;
+  string updated_at = 10;
+  string deleted_at = 11;
+}
+
+// =====================
+// REQUESTS
+// =====================
+
+message CreateUserRequest {
+  string name = 1;
+  string phone = 2;
+  int32 age = 3;
+  string address = 4;
+  string email = 5;
+  string image = 6;
+}
+
+message GetUserByIDRequest {
+  uint64 id = 1;
+}
+
+message GetUserByPhoneRequest {
+  string phone = 1;
+}
+
+message GetAllUsersRequest {}
+
+message UpdateUserRequest {
+  uint64 id = 1;
+  string name = 2;
+  string phone = 3;
+  int32 age = 4;
+  string address = 5;
+  string email = 6;
+  string image = 7;
+}
+
+message DeleteUserRequest {
+  uint64 id = 1;
+}
+
+// =====================
+// RESPONSES
+// =====================
+
+message UserResponse {
+  User user = 1;
+}
+
+
+message GetAllUsersResponse {
+  repeated User users = 1;
+
+  int32 total = 2;    
+  int32 limit = 3;    
+  int32 offset = 4;   
+}
+
+message Empty {}
+
+// =====================
+// SERVICE
+// =====================
+
+service UserService {
+  rpc CreateUser(CreateUserRequest) returns (UserResponse);
+  rpc GetUserByID(GetUserByIDRequest) returns (UserResponse);
+  rpc GetUserByPhone(GetUserByPhoneRequest) returns (UserResponse);
+  rpc GetAllUsers(GetAllUsersRequest) returns (GetAllUsersResponse);
+  rpc UpdateUser(UpdateUserRequest) returns (UserResponse);
+  rpc DeleteUser(DeleteUserRequest) returns (Empty);
+}
