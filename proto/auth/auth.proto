@@ -32,11 +32,9 @@ message RegisterRequest {
 message LoginRequest {
   string phone = 1;
 }
+type Rabbit struct {
+	Conn    *amqp.Connection
+	Channel *amqp.Channel
+}
 
 // =========================
-// RESPONSE (BOTH)
-// =========================
-message AuthResponse {
-  string access_token  = 1;
-  string refresh_token = 2;
-}
