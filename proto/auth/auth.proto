@@ -10,15 +10,16 @@ option go_package = "github.com/khbdev/what-food-proto/proto/authpb;authpb";
 service AuthService {
 
   // Register user (step 1)
-  rpc Register(RegisterRequest) returns (AuthResponse);
+  rpc Register(RegisterRequest) returns (SimpleResponse);
 
-  // Login user
-  rpc Login(LoginRequest) returns (AuthResponse);
+  // Login user (send OTP)
+  rpc Login(LoginRequest) returns (SimpleResponse);
+
+  // Verify OTP (final step)
+  rpc VerifyOTP(VerifyRequest) returns (AuthResponse);
 }
 
-// =========================
-// REGISTER
-// =========================
+
 message RegisterRequest {
   string full_name = 1;
   string phone     = 2;
@@ -26,15 +27,19 @@ message RegisterRequest {
   string address   = 4;
 }
 
-// =========================
-// LOGIN
-// =========================
 message LoginRequest {
   string phone = 1;
 }
-type Rabbit struct {
-	Conn    *amqp.Connection
-	Channel *amqp.Channel
+
+message VerifyRequest {
+  int64 otp   = 1;
 }
 
-// =========================
+message SimpleResponse {
+  string message = 1;
+}
+
+message AuthResponse {
+  string access_token  = 1;
+  string refresh_token = 2;
+}
