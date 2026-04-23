@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "github.com/khbdev/what-food-proto/proto/authpb;authpb";
+
+// =========================
+// AUTH SERVICE
+// =========================
+service AuthService {
+
+  // Register user (step 1)
+  rpc Register(RegisterRequest) returns (AuthResponse);
+
+  // Login user
+  rpc Login(LoginRequest) returns (AuthResponse);
+}
+
+// =========================
+// REGISTER
+// =========================
+message RegisterRequest {
+  string full_name = 1;
+  string phone     = 2;
+  int32  age       = 3;
+  string address   = 4;
+}
+
+// =========================
+// LOGIN
+// =========================
+message LoginRequest {
+  string phone = 1;
+}
+
+// =========================
+// RESPONSE (BOTH)
+// =========================
+message AuthResponse {
+  string access_token  = 1;
+  string refresh_token = 2;
+}
