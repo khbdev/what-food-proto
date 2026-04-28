@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package category;
+
+option go_package = "github.com/khbdev/what-food-proto/proto/category;category";
+
+// ===== MODELS =====
+
+message Category {
+  int64 id = 1;
+  string name = 2;
+  string created_at = 3;
+}
+
+message Ingredient {
+  int64 id = 1;
+  string name = 2;
+  double quantity = 3;
+}
+
+message CategoryWithIngredients {
+  int64 category_id = 1;
+  string name = 2;
+  repeated Ingredient items = 3;
+}
+
+// ===== REQUESTS =====
+
+message CreateCategoryRequest {
+  string name = 1;
+}
+
+message GetByIDRequest {
+  int64 id = 1;
+}
+
+message GetAllRequest {}
+
+message UpdateCategoryRequest {
+  int64 id = 1;
+  string name = 2;
+}
+
+message DeleteCategoryRequest {
+  int64 id = 1;
+}
+
+message GetAllWithUserProductsRequest {
+  int64 user_id = 1;
+}
+
+// ===== RESPONSES =====
+
+message CategoryResponse {
+  Category category = 1;
+}
+
+message CategoryListResponse {
+  repeated Category categories = 1;
+}
+
+message CategoryWithIngredientsResponse {
+  CategoryWithIngredients category = 1;
+}
+
+message CategoryWithIngredientsListResponse {
+  repeated CategoryWithIngredients categories = 1;
+}
+
+message Empty {}
+
+// ===== SERVICE =====
+
+service CategoryService {
+  rpc Create(CreateCategoryRequest) returns (CategoryResponse);
+  rpc GetByID(GetByIDRequest) returns (CategoryWithIngredientsResponse);
+  rpc GetAll(GetAllRequest) returns (CategoryListResponse);
+  rpc Update(UpdateCategoryRequest) returns (CategoryResponse);
+  rpc Delete(DeleteCategoryRequest) returns (Empty);
+
+  rpc GetAllWithUserProducts(GetAllWithUserProductsRequest)
+      returns (CategoryWithIngredientsListResponse);
+}
