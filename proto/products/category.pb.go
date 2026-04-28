@@ -4,7 +4,7 @@
 // 	protoc        v3.21.12
 // source: products/category.proto
 
-package category
+package categorypb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -728,7 +728,7 @@ const file_products_category_proto_rawDesc = "" +
 	"\x06GetAll\x12\x17.category.GetAllRequest\x1a\x1e.category.CategoryListResponse\x12E\n" +
 	"\x06Update\x12\x1f.category.UpdateCategoryRequest\x1a\x1a.category.CategoryResponse\x12:\n" +
 	"\x06Delete\x12\x1f.category.DeleteCategoryRequest\x1a\x0f.category.Empty\x12p\n" +
-	"\x16GetAllWithUserProducts\x12'.category.GetAllWithUserProductsRequest\x1a-.category.CategoryWithIngredientsListResponseB;Z9github.com/khbdev/what-food-proto/proto/category;categoryb\x06proto3"
+	"\x16GetAllWithUserProducts\x12'.category.GetAllWithUserProductsRequest\x1a-.category.CategoryWithIngredientsListResponseB?Z=github.com/khbdev/what-food-proto/proto/categorypb;categorypbb\x06proto3"
 
 var (
 	file_products_category_proto_rawDescOnce sync.Once

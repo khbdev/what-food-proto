@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package ingredient;
+
+option go_package = "github.com/khbdev/what-food-proto/proto/productspb;productspb";
+
+// ===== MODELS =====
+
+message Ingredient {
+  int64 id = 1;
+  int64 user_id = 2;
+  string name = 3;
+  double quantity = 4;
+  int64 category_id = 5;
+  string created_at = 6;
+}
+
+// ===== REQUESTS =====
+
+message CreateIngredientRequest {
+  int64 user_id = 1;
+  string name = 2;
+  double quantity = 3;
+  int64 category_id = 4;
+}
+
+message GetIngredientByIDRequest {
+  int64 id = 1;
+  int64 user_id = 2;
+}
+
+message GetAllIngredientsRequest {
+  int64 user_id = 1;
+}
+
+message UpdateIngredientRequest {
+  int64 id = 1;
+  int64 user_id = 2;
+  string name = 3;
+  double quantity = 4;
+  int64 category_id = 5;
+}
+
+message DeleteIngredientRequest {
+  int64 id = 1;
+  int64 user_id = 2;
+}
+
+// ===== RESPONSES =====
+
+message IngredientResponse {
+  Ingredient ingredient = 1;
+}
+
+message IngredientListResponse {
+  repeated Ingredient ingredients = 1;
+}
+
+message Empty {}
+
+// ===== SERVICE =====
+
+service IngredientService {
+  rpc Create(CreateIngredientRequest) returns (IngredientResponse);
+  rpc GetByID(GetIngredientByIDRequest) returns (IngredientResponse);
+  rpc GetAll(GetAllIngredientsRequest) returns (IngredientListResponse);
+  rpc Update(UpdateIngredientRequest) returns (IngredientResponse);
+  rpc Delete(DeleteIngredientRequest) returns (Empty);
+}

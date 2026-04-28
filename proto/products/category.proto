@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package category;
 
-option go_package = "github.com/khbdev/what-food-proto/proto/category;category";
+option go_package = "github.com/khbdev/what-food-proto/proto/categorypb;categorypb";
 
 // ===== MODELS =====
 
