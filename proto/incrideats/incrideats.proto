@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ingredient;
 
-option go_package = "github.com/khbdev/what-food-proto/proto/productspb;productspb";
+option go_package = "github.com/khbdev/what-food-proto/proto/incrideatspb;incrideatspb";
 
 // ===== MODELS =====
 

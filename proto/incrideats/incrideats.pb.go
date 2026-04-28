@@ -4,7 +4,7 @@
 // 	protoc        v3.21.12
 // source: incrideats/incrideats.proto
 
-package productspb
+package incrideatspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -570,7 +570,7 @@ const file_incrideats_incrideats_proto_rawDesc = "" +
 	"\aGetByID\x12$.ingredient.GetIngredientByIDRequest\x1a\x1e.ingredient.IngredientResponse\x12R\n" +
 	"\x06GetAll\x12$.ingredient.GetAllIngredientsRequest\x1a\".ingredient.IngredientListResponse\x12M\n" +
 	"\x06Update\x12#.ingredient.UpdateIngredientRequest\x1a\x1e.ingredient.IngredientResponse\x12@\n" +
-	"\x06Delete\x12#.ingredient.DeleteIngredientRequest\x1a\x11.ingredient.EmptyB?Z=github.com/khbdev/what-food-proto/proto/productspb;productspbb\x06proto3"
+	"\x06Delete\x12#.ingredient.DeleteIngredientRequest\x1a\x11.ingredient.EmptyBCZAgithub.com/khbdev/what-food-proto/proto/incrideatspb;incrideatspbb\x06proto3"
 
 var (
 	file_incrideats_incrideats_proto_rawDescOnce sync.Once
