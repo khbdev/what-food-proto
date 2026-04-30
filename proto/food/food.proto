@@ -4,8 +4,6 @@ package food;
 
 option go_package = "food-service/genproto/food";
 
-import "google/protobuf/timestamp.proto";
-
 
 // ======================
 // 🔹 SERVICES
@@ -72,8 +70,6 @@ message Recipe {
   double protein = 10;
   double fat = 11;
   double carbs = 12;
-
-  google.protobuf.Timestamp created_at = 13;
 }
 
 message CreateRecipeRequest {
@@ -114,8 +110,6 @@ message Salad {
   double protein = 10;
   double fat = 11;
   double carbs = 12;
-
-  google.protobuf.Timestamp created_at = 13;
 }
 
 message CreateSaladRequest {
@@ -144,7 +138,6 @@ message Restaurant {
   string restaurant_name = 2;
   string description = 3;
   string image_url = 4;
-  google.protobuf.Timestamp created_at = 5;
 }
 
 message CreateRestaurantRequest {
@@ -200,8 +193,6 @@ message FoodItem {
   double protein = 11;
   double fat = 12;
   double carbs = 13;
-
-  google.protobuf.Timestamp created_at = 14;
 }
 
 message FoodListResponse {
