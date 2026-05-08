@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package nutrition;
+
+option go_package = "nutrition/proto;nutritionpb";
+
+// =====================
+// SERVICE
+// =====================
+service NutritionService {
+  rpc GetWeeklyNutrition (WeeklyNutritionRequest) returns (WeeklyNutritionResponse);
+}
+
+// =====================
+// REQUEST
+// =====================
+message WeeklyNutritionRequest {
+  int64 user_id = 1;
+}
+
+// =====================
+// RESPONSE
+// =====================
+message WeeklyNutritionResponse {
+  repeated DailyNutrition days = 1;
+}
+
+// =====================
+// DOMAIN MODEL
+// =====================
+message DailyNutrition {
+  string day = 1;
+  double kcal = 2;
+  double fat = 3;
+  double carbs = 4;
+  double protein = 5;
+}
