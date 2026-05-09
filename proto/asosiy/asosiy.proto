@@ -14,14 +14,14 @@ service FoodService {
 }
 
 // =========================
-// FILTER REQUEST (PORTION OLIB TASHLANDI)
+// FILTER REQUEST
 // =========================
 
 message FoodFilterRequest {
-  string country = 1;      // uzbekistan | russia | korea
-  string meal_time = 2;    // breakfast | lunch | dinner
-  bool has_salad = 3;      // true | false
-  int32 kcal_limit = 4;    // 600 | 700 | 780
+  string country = 1;
+  string meal_time = 2;
+  bool has_salad = 3;
+  int32 kcal_limit = 4;
 }
 
 // =========================
@@ -30,19 +30,14 @@ message FoodFilterRequest {
 
 message FoodItem {
   int64 id = 1;
-  string type = 2; // recipe | salad
-
+  string type = 2;
   int64 restaurant_id = 3;
-
   string name = 4;
   string description = 5;
-
   string image_url = 6;
   string video_url = 7;
-
   string country = 8;
   string meal_time = 9;
-
   int32 kcal = 10;
   double protein = 11;
   double fat = 12;
@@ -54,69 +49,44 @@ message FoodListResponse {
 }
 
 // =========================
-// DETAIL REQUEST (PORTION QO'SHILDI)
+// DETAIL REQUEST
 // =========================
 
 message FoodDetailRequest {
   int64 id = 1;
-  string type = 2; // recipe | salad
-
-  int32 portion = 3; // 🔥 SHU YERDA
+  string type = 2;
+  int32 portion = 3;
 }
 
 // =========================
 // DETAIL RESPONSE
 // =========================
 
+message Ingredient {
+  string name = 1;
+  string amount = 2;
+}
+
 message FoodDetailResponse {
-  oneof data {
-    Recipe recipe = 1;
-    Salad salad = 2;
-  }
-}
-
-// =========================
-// SALAD
-// =========================
-
-message Salad {
+  // food ma'lumotlari
   int64 id = 1;
-  int64 restaurant_id = 2;
+  string type = 2;
+  int64 restaurant_id = 3;
+  string name = 4;
+  string description = 5;
+  string image_url = 6;
+  string video_url = 7;
+  string country = 8;
+  string meal_time = 9;
+  int32 kcal = 10;
+  double protein = 11;
+  double fat = 12;
+  double carbs = 13;
 
-  string name = 3;
-  string description = 4;
-
-  string image_url = 5;
-  string video_url = 6;
-
-  string country = 7;
-  string meal_time = 8;
-
-  int32 kcal = 9;
-  double protein = 10;
-  double fat = 11;
-  double carbs = 12;
-}
-
-// =========================
-// RECIPE
-// =========================
-
-message Recipe {
-  int64 id = 1;
-  int64 restaurant_id = 2;
-
-  string name = 3;
-  string description = 4;
-
-  string image_url = 5;
-  string video_url = 6;
-
-  string country = 7;
-  string meal_time = 8;
-
-  int32 kcal = 9;
-  double protein = 10;
-  double fat = 11;
-  double carbs = 12;
+  // AI ma'lumotlari
+  int32 portion = 14;
+  float total_kcal = 15;
+  int32 cooking_time_minutes = 16;
+  repeated Ingredient ingredients = 17;
+  repeated string steps = 18;
 }
