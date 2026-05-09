@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: asosiy/asosiy.proto
 
-package proto
+package asosiypb
 
 import (
 	context "context"

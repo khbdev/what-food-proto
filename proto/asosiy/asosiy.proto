@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package asosiy;
 
-option go_package = "asosiy-service/proto";
+option go_package = "github.com/khbdev/what-food-proto/proto/asosiy;asosiypb";
 
 // =========================
 // SERVICE

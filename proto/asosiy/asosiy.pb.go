@@ -4,7 +4,7 @@
 // 	protoc        v3.21.12
 // source: asosiy/asosiy.proto
 
-package proto
+package asosiypb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -746,7 +746,7 @@ const file_asosiy_asosiy_proto_rawDesc = "" +
 	"\vFoodService\x12A\n" +
 	"\n" +
 	"FilterFood\x12\x19.asosiy.FoodFilterRequest\x1a\x18.asosiy.FoodListResponse\x12F\n" +
-	"\rGetFoodDetail\x12\x19.asosiy.FoodDetailRequest\x1a\x1a.asosiy.FoodDetailResponseB\x16Z\x14asosiy-service/protob\x06proto3"
+	"\rGetFoodDetail\x12\x19.asosiy.FoodDetailRequest\x1a\x1a.asosiy.FoodDetailResponseB9Z7github.com/khbdev/what-food-proto/proto/asosiy;asosiypbb\x06proto3"
 
 var (
 	file_asosiy_asosiy_proto_rawDescOnce sync.Once
