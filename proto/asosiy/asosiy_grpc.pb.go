@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.1
 // - protoc             v3.21.12
-// source: mail/mail.proto
+// source: asosiy/asosiy.proto
 
 package proto
 
@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FoodService_FilterFood_FullMethodName    = "/food.FoodService/FilterFood"
-	FoodService_GetFoodDetail_FullMethodName = "/food.FoodService/GetFoodDetail"
+	FoodService_FilterFood_FullMethodName    = "/asosiy.FoodService/FilterFood"
+	FoodService_GetFoodDetail_FullMethodName = "/asosiy.FoodService/GetFoodDetail"
 )
 
 // FoodServiceClient is the client API for FoodService service.
@@ -142,7 +142,7 @@ func _FoodService_GetFoodDetail_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var FoodService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "food.FoodService",
+	ServiceName: "asosiy.FoodService",
 	HandlerType: (*FoodServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -155,5 +155,5 @@ var FoodService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "mail/mail.proto",
+	Metadata: "asosiy/asosiy.proto",
 }

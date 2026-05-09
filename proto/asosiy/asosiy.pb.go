@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v3.21.12
-// source: mail/mail.proto
+// source: asosiy/asosiy.proto
 
 package proto
 
@@ -33,7 +33,7 @@ type FoodFilterRequest struct {
 
 func (x *FoodFilterRequest) Reset() {
 	*x = FoodFilterRequest{}
-	mi := &file_mail_mail_proto_msgTypes[0]
+	mi := &file_asosiy_asosiy_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +45,7 @@ func (x *FoodFilterRequest) String() string {
 func (*FoodFilterRequest) ProtoMessage() {}
 
 func (x *FoodFilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mail_mail_proto_msgTypes[0]
+	mi := &file_asosiy_asosiy_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +58,7 @@ func (x *FoodFilterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoodFilterRequest.ProtoReflect.Descriptor instead.
 func (*FoodFilterRequest) Descriptor() ([]byte, []int) {
-	return file_mail_mail_proto_rawDescGZIP(), []int{0}
+	return file_asosiy_asosiy_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *FoodFilterRequest) GetCountry() string {
@@ -110,7 +110,7 @@ type FoodItem struct {
 
 func (x *FoodItem) Reset() {
 	*x = FoodItem{}
-	mi := &file_mail_mail_proto_msgTypes[1]
+	mi := &file_asosiy_asosiy_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -122,7 +122,7 @@ func (x *FoodItem) String() string {
 func (*FoodItem) ProtoMessage() {}
 
 func (x *FoodItem) ProtoReflect() protoreflect.Message {
-	mi := &file_mail_mail_proto_msgTypes[1]
+	mi := &file_asosiy_asosiy_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -135,7 +135,7 @@ func (x *FoodItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoodItem.ProtoReflect.Descriptor instead.
 func (*FoodItem) Descriptor() ([]byte, []int) {
-	return file_mail_mail_proto_rawDescGZIP(), []int{1}
+	return file_asosiy_asosiy_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *FoodItem) GetId() int64 {
@@ -238,7 +238,7 @@ type FoodListResponse struct {
 
 func (x *FoodListResponse) Reset() {
 	*x = FoodListResponse{}
-	mi := &file_mail_mail_proto_msgTypes[2]
+	mi := &file_asosiy_asosiy_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -250,7 +250,7 @@ func (x *FoodListResponse) String() string {
 func (*FoodListResponse) ProtoMessage() {}
 
 func (x *FoodListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mail_mail_proto_msgTypes[2]
+	mi := &file_asosiy_asosiy_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -263,7 +263,7 @@ func (x *FoodListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoodListResponse.ProtoReflect.Descriptor instead.
 func (*FoodListResponse) Descriptor() ([]byte, []int) {
-	return file_mail_mail_proto_rawDescGZIP(), []int{2}
+	return file_asosiy_asosiy_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *FoodListResponse) GetItems() []*FoodItem {
@@ -284,7 +284,7 @@ type FoodDetailRequest struct {
 
 func (x *FoodDetailRequest) Reset() {
 	*x = FoodDetailRequest{}
-	mi := &file_mail_mail_proto_msgTypes[3]
+	mi := &file_asosiy_asosiy_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -296,7 +296,7 @@ func (x *FoodDetailRequest) String() string {
 func (*FoodDetailRequest) ProtoMessage() {}
 
 func (x *FoodDetailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_mail_mail_proto_msgTypes[3]
+	mi := &file_asosiy_asosiy_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -309,7 +309,7 @@ func (x *FoodDetailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoodDetailRequest.ProtoReflect.Descriptor instead.
 func (*FoodDetailRequest) Descriptor() ([]byte, []int) {
-	return file_mail_mail_proto_rawDescGZIP(), []int{3}
+	return file_asosiy_asosiy_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *FoodDetailRequest) GetId() int64 {
@@ -346,7 +346,7 @@ type FoodDetailResponse struct {
 
 func (x *FoodDetailResponse) Reset() {
 	*x = FoodDetailResponse{}
-	mi := &file_mail_mail_proto_msgTypes[4]
+	mi := &file_asosiy_asosiy_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -358,7 +358,7 @@ func (x *FoodDetailResponse) String() string {
 func (*FoodDetailResponse) ProtoMessage() {}
 
 func (x *FoodDetailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_mail_mail_proto_msgTypes[4]
+	mi := &file_asosiy_asosiy_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -371,7 +371,7 @@ func (x *FoodDetailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FoodDetailResponse.ProtoReflect.Descriptor instead.
 func (*FoodDetailResponse) Descriptor() ([]byte, []int) {
-	return file_mail_mail_proto_rawDescGZIP(), []int{4}
+	return file_asosiy_asosiy_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *FoodDetailResponse) GetData() isFoodDetailResponse_Data {
@@ -435,7 +435,7 @@ type Salad struct {
 
 func (x *Salad) Reset() {
 	*x = Salad{}
-	mi := &file_mail_mail_proto_msgTypes[5]
+	mi := &file_asosiy_asosiy_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -447,7 +447,7 @@ func (x *Salad) String() string {
 func (*Salad) ProtoMessage() {}
 
 func (x *Salad) ProtoReflect() protoreflect.Message {
-	mi := &file_mail_mail_proto_msgTypes[5]
+	mi := &file_asosiy_asosiy_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -460,7 +460,7 @@ func (x *Salad) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Salad.ProtoReflect.Descriptor instead.
 func (*Salad) Descriptor() ([]byte, []int) {
-	return file_mail_mail_proto_rawDescGZIP(), []int{5}
+	return file_asosiy_asosiy_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *Salad) GetId() int64 {
@@ -567,7 +567,7 @@ type Recipe struct {
 
 func (x *Recipe) Reset() {
 	*x = Recipe{}
-	mi := &file_mail_mail_proto_msgTypes[6]
+	mi := &file_asosiy_asosiy_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -579,7 +579,7 @@ func (x *Recipe) String() string {
 func (*Recipe) ProtoMessage() {}
 
 func (x *Recipe) ProtoReflect() protoreflect.Message {
-	mi := &file_mail_mail_proto_msgTypes[6]
+	mi := &file_asosiy_asosiy_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -592,7 +592,7 @@ func (x *Recipe) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Recipe.ProtoReflect.Descriptor instead.
 func (*Recipe) Descriptor() ([]byte, []int) {
-	return file_mail_mail_proto_rawDescGZIP(), []int{6}
+	return file_asosiy_asosiy_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Recipe) GetId() int64 {
@@ -679,11 +679,11 @@ func (x *Recipe) GetCarbs() float64 {
 	return 0
 }
 
-var File_mail_mail_proto protoreflect.FileDescriptor
+var File_asosiy_asosiy_proto protoreflect.FileDescriptor
 
-const file_mail_mail_proto_rawDesc = "" +
+const file_asosiy_asosiy_proto_rawDesc = "" +
 	"\n" +
-	"\x0fmail/mail.proto\x12\x04food\"\x86\x01\n" +
+	"\x13asosiy/asosiy.proto\x12\x06asosiy\"\x86\x01\n" +
 	"\x11FoodFilterRequest\x12\x18\n" +
 	"\acountry\x18\x01 \x01(\tR\acountry\x12\x1b\n" +
 	"\tmeal_time\x18\x02 \x01(\tR\bmealTime\x12\x1b\n" +
@@ -704,16 +704,16 @@ const file_mail_mail_proto_rawDesc = "" +
 	" \x01(\x05R\x04kcal\x12\x18\n" +
 	"\aprotein\x18\v \x01(\x01R\aprotein\x12\x10\n" +
 	"\x03fat\x18\f \x01(\x01R\x03fat\x12\x14\n" +
-	"\x05carbs\x18\r \x01(\x01R\x05carbs\"8\n" +
-	"\x10FoodListResponse\x12$\n" +
-	"\x05items\x18\x01 \x03(\v2\x0e.food.FoodItemR\x05items\"Q\n" +
+	"\x05carbs\x18\r \x01(\x01R\x05carbs\":\n" +
+	"\x10FoodListResponse\x12&\n" +
+	"\x05items\x18\x01 \x03(\v2\x10.asosiy.FoodItemR\x05items\"Q\n" +
 	"\x11FoodDetailRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04type\x18\x02 \x01(\tR\x04type\x12\x18\n" +
-	"\aportion\x18\x03 \x01(\x05R\aportion\"i\n" +
-	"\x12FoodDetailResponse\x12&\n" +
-	"\x06recipe\x18\x01 \x01(\v2\f.food.RecipeH\x00R\x06recipe\x12#\n" +
-	"\x05salad\x18\x02 \x01(\v2\v.food.SaladH\x00R\x05saladB\x06\n" +
+	"\aportion\x18\x03 \x01(\x05R\aportion\"m\n" +
+	"\x12FoodDetailResponse\x12(\n" +
+	"\x06recipe\x18\x01 \x01(\v2\x0e.asosiy.RecipeH\x00R\x06recipe\x12%\n" +
+	"\x05salad\x18\x02 \x01(\v2\r.asosiy.SaladH\x00R\x05saladB\x06\n" +
 	"\x04data\"\xb9\x02\n" +
 	"\x05Salad\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12#\n" +
@@ -742,42 +742,42 @@ const file_mail_mail_proto_rawDesc = "" +
 	"\aprotein\x18\n" +
 	" \x01(\x01R\aprotein\x12\x10\n" +
 	"\x03fat\x18\v \x01(\x01R\x03fat\x12\x14\n" +
-	"\x05carbs\x18\f \x01(\x01R\x05carbs2\x90\x01\n" +
-	"\vFoodService\x12=\n" +
+	"\x05carbs\x18\f \x01(\x01R\x05carbs2\x98\x01\n" +
+	"\vFoodService\x12A\n" +
 	"\n" +
-	"FilterFood\x12\x17.food.FoodFilterRequest\x1a\x16.food.FoodListResponse\x12B\n" +
-	"\rGetFoodDetail\x12\x17.food.FoodDetailRequest\x1a\x18.food.FoodDetailResponseB\x14Z\x12mail-service/protob\x06proto3"
+	"FilterFood\x12\x19.asosiy.FoodFilterRequest\x1a\x18.asosiy.FoodListResponse\x12F\n" +
+	"\rGetFoodDetail\x12\x19.asosiy.FoodDetailRequest\x1a\x1a.asosiy.FoodDetailResponseB\x16Z\x14asosiy-service/protob\x06proto3"
 
 var (
-	file_mail_mail_proto_rawDescOnce sync.Once
-	file_mail_mail_proto_rawDescData []byte
+	file_asosiy_asosiy_proto_rawDescOnce sync.Once
+	file_asosiy_asosiy_proto_rawDescData []byte
 )
 
-func file_mail_mail_proto_rawDescGZIP() []byte {
-	file_mail_mail_proto_rawDescOnce.Do(func() {
-		file_mail_mail_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_mail_mail_proto_rawDesc), len(file_mail_mail_proto_rawDesc)))
+func file_asosiy_asosiy_proto_rawDescGZIP() []byte {
+	file_asosiy_asosiy_proto_rawDescOnce.Do(func() {
+		file_asosiy_asosiy_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_asosiy_asosiy_proto_rawDesc), len(file_asosiy_asosiy_proto_rawDesc)))
 	})
-	return file_mail_mail_proto_rawDescData
+	return file_asosiy_asosiy_proto_rawDescData
 }
 
-var file_mail_mail_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
-var file_mail_mail_proto_goTypes = []any{
-	(*FoodFilterRequest)(nil),  // 0: food.FoodFilterRequest
-	(*FoodItem)(nil),           // 1: food.FoodItem
-	(*FoodListResponse)(nil),   // 2: food.FoodListResponse
-	(*FoodDetailRequest)(nil),  // 3: food.FoodDetailRequest
-	(*FoodDetailResponse)(nil), // 4: food.FoodDetailResponse
-	(*Salad)(nil),              // 5: food.Salad
-	(*Recipe)(nil),             // 6: food.Recipe
+var file_asosiy_asosiy_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_asosiy_asosiy_proto_goTypes = []any{
+	(*FoodFilterRequest)(nil),  // 0: asosiy.FoodFilterRequest
+	(*FoodItem)(nil),           // 1: asosiy.FoodItem
+	(*FoodListResponse)(nil),   // 2: asosiy.FoodListResponse
+	(*FoodDetailRequest)(nil),  // 3: asosiy.FoodDetailRequest
+	(*FoodDetailResponse)(nil), // 4: asosiy.FoodDetailResponse
+	(*Salad)(nil),              // 5: asosiy.Salad
+	(*Recipe)(nil),             // 6: asosiy.Recipe
 }
-var file_mail_mail_proto_depIdxs = []int32{
-	1, // 0: food.FoodListResponse.items:type_name -> food.FoodItem
-	6, // 1: food.FoodDetailResponse.recipe:type_name -> food.Recipe
-	5, // 2: food.FoodDetailResponse.salad:type_name -> food.Salad
-	0, // 3: food.FoodService.FilterFood:input_type -> food.FoodFilterRequest
-	3, // 4: food.FoodService.GetFoodDetail:input_type -> food.FoodDetailRequest
-	2, // 5: food.FoodService.FilterFood:output_type -> food.FoodListResponse
-	4, // 6: food.FoodService.GetFoodDetail:output_type -> food.FoodDetailResponse
+var file_asosiy_asosiy_proto_depIdxs = []int32{
+	1, // 0: asosiy.FoodListResponse.items:type_name -> asosiy.FoodItem
+	6, // 1: asosiy.FoodDetailResponse.recipe:type_name -> asosiy.Recipe
+	5, // 2: asosiy.FoodDetailResponse.salad:type_name -> asosiy.Salad
+	0, // 3: asosiy.FoodService.FilterFood:input_type -> asosiy.FoodFilterRequest
+	3, // 4: asosiy.FoodService.GetFoodDetail:input_type -> asosiy.FoodDetailRequest
+	2, // 5: asosiy.FoodService.FilterFood:output_type -> asosiy.FoodListResponse
+	4, // 6: asosiy.FoodService.GetFoodDetail:output_type -> asosiy.FoodDetailResponse
 	5, // [5:7] is the sub-list for method output_type
 	3, // [3:5] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -785,12 +785,12 @@ var file_mail_mail_proto_depIdxs = []int32{
 	0, // [0:3] is the sub-list for field type_name
 }
 
-func init() { file_mail_mail_proto_init() }
-func file_mail_mail_proto_init() {
-	if File_mail_mail_proto != nil {
+func init() { file_asosiy_asosiy_proto_init() }
+func file_asosiy_asosiy_proto_init() {
+	if File_asosiy_asosiy_proto != nil {
 		return
 	}
-	file_mail_mail_proto_msgTypes[4].OneofWrappers = []any{
+	file_asosiy_asosiy_proto_msgTypes[4].OneofWrappers = []any{
 		(*FoodDetailResponse_Recipe)(nil),
 		(*FoodDetailResponse_Salad)(nil),
 	}
@@ -798,17 +798,17 @@ func file_mail_mail_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_mail_mail_proto_rawDesc), len(file_mail_mail_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_asosiy_asosiy_proto_rawDesc), len(file_asosiy_asosiy_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_mail_mail_proto_goTypes,
-		DependencyIndexes: file_mail_mail_proto_depIdxs,
-		MessageInfos:      file_mail_mail_proto_msgTypes,
+		GoTypes:           file_asosiy_asosiy_proto_goTypes,
+		DependencyIndexes: file_asosiy_asosiy_proto_depIdxs,
+		MessageInfos:      file_asosiy_asosiy_proto_msgTypes,
 	}.Build()
-	File_mail_mail_proto = out.File
-	file_mail_mail_proto_goTypes = nil
-	file_mail_mail_proto_depIdxs = nil
+	File_asosiy_asosiy_proto = out.File
+	file_asosiy_asosiy_proto_goTypes = nil
+	file_asosiy_asosiy_proto_depIdxs = nil
 }

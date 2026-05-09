@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package food;
+package asosiy;
 
-option go_package = "mail-service/proto";
+option go_package = "asosiy-service/proto";
 
 // =========================
 // SERVICE
