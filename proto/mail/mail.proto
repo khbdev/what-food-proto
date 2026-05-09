@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+package food;
+
+option go_package = "mail-service/proto";
+
+// =========================
+// SERVICE
+// =========================
+
+service FoodService {
+  rpc FilterFood (FoodFilterRequest) returns (FoodListResponse);
+  rpc GetFoodDetail (FoodDetailRequest) returns (FoodDetailResponse);
+}
+
+// =========================
+// FILTER REQUEST
+// =========================
+
+message FoodFilterRequest {
+  string country = 1;      // uzbekistan | russia | korea
+  string meal_time = 2;    // breakfast | lunch | dinner
+  int32 portion = 3;       // number of people
+  bool has_salad = 4;      // true | false
+  int32 kcal_limit = 5;    // 600 | 700 | 780
+}
+
+// =========================
+// LIST RESPONSE
+// =========================
+
+message FoodItem {
+  int64 id = 1;
+  string type = 2; // recipe | salad
+
+  int64 restaurant_id = 3;
+
+  string name = 4;
+  string description = 5;
+
+  string image_url = 6;
+  string video_url = 7;
+
+  string country = 8;
+  string meal_time = 9;
+
+  int32 kcal = 10;
+  double protein = 11;
+  double fat = 12;
+  double carbs = 13;
+}
+
+message FoodListResponse {
+  repeated FoodItem items = 1;
+}
+
+// =========================
+// DETAIL REQUEST
+// =========================
+
+message FoodDetailRequest {
+  int64 id = 1;
+  string type = 2; // recipe | salad
+}
+
+// =========================
+// DETAIL RESPONSE WRAPPER
+// =========================
+
+message FoodDetailResponse {
+  oneof data {
+    Recipe recipe = 1;
+    Salad salad = 2;
+  }
+}
+
+// =========================
+// SALAD
+// =========================
+
+message Salad {
+  int64 id = 1;
+  int64 restaurant_id = 2;
+
+  string name = 3;
+  string description = 4;
+
+  string image_url = 5;
+  string video_url = 6;
+
+  string country = 7;
+  string meal_time = 8;
+
+  int32 kcal = 9;
+  double protein = 10;
+  double fat = 11;
+  double carbs = 12;
+}
+
+// =========================
+// RECIPE
+// =========================
+
+message Recipe {
+  int64 id = 1;
+  int64 restaurant_id = 2;
+
+  string name = 3;
+  string description = 4;
+
+  string image_url = 5;
+  string video_url = 6;
+
+  string country = 7;
+  string meal_time = 8;
+
+  int32 kcal = 9;
+  double protein = 10;
+  double fat = 11;
+  double carbs = 12;
+}
