@@ -25,9 +25,8 @@ type FoodFilterRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Country       string                 `protobuf:"bytes,1,opt,name=country,proto3" json:"country,omitempty"`                       // uzbekistan | russia | korea
 	MealTime      string                 `protobuf:"bytes,2,opt,name=meal_time,json=mealTime,proto3" json:"meal_time,omitempty"`     // breakfast | lunch | dinner
-	Portion       int32                  `protobuf:"varint,3,opt,name=portion,proto3" json:"portion,omitempty"`                      // number of people
-	HasSalad      bool                   `protobuf:"varint,4,opt,name=has_salad,json=hasSalad,proto3" json:"has_salad,omitempty"`    // true | false
-	KcalLimit     int32                  `protobuf:"varint,5,opt,name=kcal_limit,json=kcalLimit,proto3" json:"kcal_limit,omitempty"` // 600 | 700 | 780
+	HasSalad      bool                   `protobuf:"varint,3,opt,name=has_salad,json=hasSalad,proto3" json:"has_salad,omitempty"`    // true | false
+	KcalLimit     int32                  `protobuf:"varint,4,opt,name=kcal_limit,json=kcalLimit,proto3" json:"kcal_limit,omitempty"` // 600 | 700 | 780
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -74,13 +73,6 @@ func (x *FoodFilterRequest) GetMealTime() string {
 		return x.MealTime
 	}
 	return ""
-}
-
-func (x *FoodFilterRequest) GetPortion() int32 {
-	if x != nil {
-		return x.Portion
-	}
-	return 0
 }
 
 func (x *FoodFilterRequest) GetHasSalad() bool {
@@ -284,7 +276,8 @@ func (x *FoodListResponse) GetItems() []*FoodItem {
 type FoodDetailRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Type          string                 `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"` // recipe | salad
+	Type          string                 `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`        // recipe | salad
+	Portion       int32                  `protobuf:"varint,3,opt,name=portion,proto3" json:"portion,omitempty"` // 🔥 SHU YERDA
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -331,6 +324,13 @@ func (x *FoodDetailRequest) GetType() string {
 		return x.Type
 	}
 	return ""
+}
+
+func (x *FoodDetailRequest) GetPortion() int32 {
+	if x != nil {
+		return x.Portion
+	}
+	return 0
 }
 
 type FoodDetailResponse struct {
@@ -683,14 +683,13 @@ var File_mail_mail_proto protoreflect.FileDescriptor
 
 const file_mail_mail_proto_rawDesc = "" +
 	"\n" +
-	"\x0fmail/mail.proto\x12\x04food\"\xa0\x01\n" +
+	"\x0fmail/mail.proto\x12\x04food\"\x86\x01\n" +
 	"\x11FoodFilterRequest\x12\x18\n" +
 	"\acountry\x18\x01 \x01(\tR\acountry\x12\x1b\n" +
-	"\tmeal_time\x18\x02 \x01(\tR\bmealTime\x12\x18\n" +
-	"\aportion\x18\x03 \x01(\x05R\aportion\x12\x1b\n" +
-	"\thas_salad\x18\x04 \x01(\bR\bhasSalad\x12\x1d\n" +
+	"\tmeal_time\x18\x02 \x01(\tR\bmealTime\x12\x1b\n" +
+	"\thas_salad\x18\x03 \x01(\bR\bhasSalad\x12\x1d\n" +
 	"\n" +
-	"kcal_limit\x18\x05 \x01(\x05R\tkcalLimit\"\xd0\x02\n" +
+	"kcal_limit\x18\x04 \x01(\x05R\tkcalLimit\"\xd0\x02\n" +
 	"\bFoodItem\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04type\x18\x02 \x01(\tR\x04type\x12#\n" +
@@ -707,10 +706,11 @@ const file_mail_mail_proto_rawDesc = "" +
 	"\x03fat\x18\f \x01(\x01R\x03fat\x12\x14\n" +
 	"\x05carbs\x18\r \x01(\x01R\x05carbs\"8\n" +
 	"\x10FoodListResponse\x12$\n" +
-	"\x05items\x18\x01 \x03(\v2\x0e.food.FoodItemR\x05items\"7\n" +
+	"\x05items\x18\x01 \x03(\v2\x0e.food.FoodItemR\x05items\"Q\n" +
 	"\x11FoodDetailRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
-	"\x04type\x18\x02 \x01(\tR\x04type\"i\n" +
+	"\x04type\x18\x02 \x01(\tR\x04type\x12\x18\n" +
+	"\aportion\x18\x03 \x01(\x05R\aportion\"i\n" +
 	"\x12FoodDetailResponse\x12&\n" +
 	"\x06recipe\x18\x01 \x01(\v2\f.food.RecipeH\x00R\x06recipe\x12#\n" +
 	"\x05salad\x18\x02 \x01(\v2\v.food.SaladH\x00R\x05saladB\x06\n" +

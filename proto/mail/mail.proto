@@ -14,15 +14,14 @@ service FoodService {
 }
 
 // =========================
-// FILTER REQUEST
+// FILTER REQUEST (PORTION OLIB TASHLANDI)
 // =========================
 
 message FoodFilterRequest {
   string country = 1;      // uzbekistan | russia | korea
   string meal_time = 2;    // breakfast | lunch | dinner
-  int32 portion = 3;       // number of people
-  bool has_salad = 4;      // true | false
-  int32 kcal_limit = 5;    // 600 | 700 | 780
+  bool has_salad = 3;      // true | false
+  int32 kcal_limit = 4;    // 600 | 700 | 780
 }
 
 // =========================
@@ -55,16 +54,18 @@ message FoodListResponse {
 }
 
 // =========================
-// DETAIL REQUEST
+// DETAIL REQUEST (PORTION QO'SHILDI)
 // =========================
 
 message FoodDetailRequest {
   int64 id = 1;
   string type = 2; // recipe | salad
+
+  int32 portion = 3; // 🔥 SHU YERDA
 }
 
 // =========================
-// DETAIL RESPONSE WRAPPER
+// DETAIL RESPONSE
 // =========================
 
 message FoodDetailResponse {
