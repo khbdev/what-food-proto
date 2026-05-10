@@ -19,9 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AuthService_Register_FullMethodName  = "/auth.AuthService/Register"
-	AuthService_Login_FullMethodName     = "/auth.AuthService/Login"
-	AuthService_VerifyOTP_FullMethodName = "/auth.AuthService/VerifyOTP"
+	AuthService_Register_FullMethodName     = "/auth.AuthService/Register"
+	AuthService_Login_FullMethodName        = "/auth.AuthService/Login"
+	AuthService_VerifyOTP_FullMethodName    = "/auth.AuthService/VerifyOTP"
+	AuthService_RefreshToken_FullMethodName = "/auth.AuthService/RefreshToken"
+	AuthService_Logout_FullMethodName       = "/auth.AuthService/Logout"
 )
 
 // AuthServiceClient is the client API for AuthService service.
@@ -32,12 +34,11 @@ const (
 // AUTH SERVICE
 // =========================
 type AuthServiceClient interface {
-	// Register user (step 1)
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
-	// Login user (send OTP)
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
-	// Verify OTP (final step)
 	VerifyOTP(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*AuthResponse, error)
+	RefreshToken(ctx context.Context, in *RefreshRequest, opts ...grpc.CallOption) (*AuthResponse, error)
+	Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
 }
 
 type authServiceClient struct {
@@ -78,6 +79,26 @@ func (c *authServiceClient) VerifyOTP(ctx context.Context, in *VerifyRequest, op
 	return out, nil
 }
 
+func (c *authServiceClient) RefreshToken(ctx context.Context, in *RefreshRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AuthResponse)
+	err := c.cc.Invoke(ctx, AuthService_RefreshToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authServiceClient) Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SimpleResponse)
+	err := c.cc.Invoke(ctx, AuthService_Logout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AuthServiceServer is the server API for AuthService service.
 // All implementations must embed UnimplementedAuthServiceServer
 // for forward compatibility.
@@ -86,12 +107,11 @@ func (c *authServiceClient) VerifyOTP(ctx context.Context, in *VerifyRequest, op
 // AUTH SERVICE
 // =========================
 type AuthServiceServer interface {
-	// Register user (step 1)
 	Register(context.Context, *RegisterRequest) (*SimpleResponse, error)
-	// Login user (send OTP)
 	Login(context.Context, *LoginRequest) (*SimpleResponse, error)
-	// Verify OTP (final step)
 	VerifyOTP(context.Context, *VerifyRequest) (*AuthResponse, error)
+	RefreshToken(context.Context, *RefreshRequest) (*AuthResponse, error)
+	Logout(context.Context, *LogoutRequest) (*SimpleResponse, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }
 
@@ -110,6 +130,12 @@ func (UnimplementedAuthServiceServer) Login(context.Context, *LoginRequest) (*Si
 }
 func (UnimplementedAuthServiceServer) VerifyOTP(context.Context, *VerifyRequest) (*AuthResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method VerifyOTP not implemented")
+}
+func (UnimplementedAuthServiceServer) RefreshToken(context.Context, *RefreshRequest) (*AuthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RefreshToken not implemented")
+}
+func (UnimplementedAuthServiceServer) Logout(context.Context, *LogoutRequest) (*SimpleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Logout not implemented")
 }
 func (UnimplementedAuthServiceServer) mustEmbedUnimplementedAuthServiceServer() {}
 func (UnimplementedAuthServiceServer) testEmbeddedByValue()                     {}
@@ -186,6 +212,42 @@ func _AuthService_VerifyOTP_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AuthService_RefreshToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefreshRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).RefreshToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_RefreshToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).RefreshToken(ctx, req.(*RefreshRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthService_Logout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LogoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).Logout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_Logout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).Logout(ctx, req.(*LogoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AuthService_ServiceDesc is the grpc.ServiceDesc for AuthService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -204,6 +266,14 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "VerifyOTP",
 			Handler:    _AuthService_VerifyOTP_Handler,
+		},
+		{
+			MethodName: "RefreshToken",
+			Handler:    _AuthService_RefreshToken_Handler,
+		},
+		{
+			MethodName: "Logout",
+			Handler:    _AuthService_Logout_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
