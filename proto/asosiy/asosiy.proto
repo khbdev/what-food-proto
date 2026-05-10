@@ -56,6 +56,7 @@ message FoodDetailRequest {
   int64 id = 1;
   string type = 2;
   int32 portion = 3;
+  int64 user_id = 4;
 }
 
 // =========================

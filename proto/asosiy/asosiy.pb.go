@@ -278,6 +278,7 @@ type FoodDetailRequest struct {
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Type          string                 `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
 	Portion       int32                  `protobuf:"varint,3,opt,name=portion,proto3" json:"portion,omitempty"`
+	UserId        int64                  `protobuf:"varint,4,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -329,6 +330,13 @@ func (x *FoodDetailRequest) GetType() string {
 func (x *FoodDetailRequest) GetPortion() int32 {
 	if x != nil {
 		return x.Portion
+	}
+	return 0
+}
+
+func (x *FoodDetailRequest) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
 	}
 	return 0
 }
@@ -594,11 +602,12 @@ const file_asosiy_asosiy_proto_rawDesc = "" +
 	"\x03fat\x18\f \x01(\x01R\x03fat\x12\x14\n" +
 	"\x05carbs\x18\r \x01(\x01R\x05carbs\":\n" +
 	"\x10FoodListResponse\x12&\n" +
-	"\x05items\x18\x01 \x03(\v2\x10.asosiy.FoodItemR\x05items\"Q\n" +
+	"\x05items\x18\x01 \x03(\v2\x10.asosiy.FoodItemR\x05items\"j\n" +
 	"\x11FoodDetailRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04type\x18\x02 \x01(\tR\x04type\x12\x18\n" +
-	"\aportion\x18\x03 \x01(\x05R\aportion\"8\n" +
+	"\aportion\x18\x03 \x01(\x05R\aportion\x12\x17\n" +
+	"\auser_id\x18\x04 \x01(\x03R\x06userId\"8\n" +
 	"\n" +
 	"Ingredient\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x16\n" +
