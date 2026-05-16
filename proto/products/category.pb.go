@@ -421,27 +421,29 @@ func (x *DeleteCategoryRequest) GetId() int64 {
 	return 0
 }
 
-type GetAllWithUserProductsRequest struct {
+// Get category by category_id with ingredients filtered by user_id
+type GetByIDWithUserProductsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	CategoryId    int64                  `protobuf:"varint,1,opt,name=category_id,json=categoryId,proto3" json:"category_id,omitempty"`
+	UserId        int64                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetAllWithUserProductsRequest) Reset() {
-	*x = GetAllWithUserProductsRequest{}
+func (x *GetByIDWithUserProductsRequest) Reset() {
+	*x = GetByIDWithUserProductsRequest{}
 	mi := &file_products_category_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAllWithUserProductsRequest) String() string {
+func (x *GetByIDWithUserProductsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAllWithUserProductsRequest) ProtoMessage() {}
+func (*GetByIDWithUserProductsRequest) ProtoMessage() {}
 
-func (x *GetAllWithUserProductsRequest) ProtoReflect() protoreflect.Message {
+func (x *GetByIDWithUserProductsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_products_category_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -453,12 +455,19 @@ func (x *GetAllWithUserProductsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAllWithUserProductsRequest.ProtoReflect.Descriptor instead.
-func (*GetAllWithUserProductsRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetByIDWithUserProductsRequest.ProtoReflect.Descriptor instead.
+func (*GetByIDWithUserProductsRequest) Descriptor() ([]byte, []int) {
 	return file_products_category_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *GetAllWithUserProductsRequest) GetUserId() int64 {
+func (x *GetByIDWithUserProductsRequest) GetCategoryId() int64 {
+	if x != nil {
+		return x.CategoryId
+	}
+	return 0
+}
+
+func (x *GetByIDWithUserProductsRequest) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
@@ -706,9 +715,11 @@ const file_products_category_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\"'\n" +
 	"\x15DeleteCategoryRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"8\n" +
-	"\x1dGetAllWithUserProductsRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId\"B\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"Z\n" +
+	"\x1eGetByIDWithUserProductsRequest\x12\x1f\n" +
+	"\vcategory_id\x18\x01 \x01(\x03R\n" +
+	"categoryId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\x03R\x06userId\"B\n" +
 	"\x10CategoryResponse\x12.\n" +
 	"\bcategory\x18\x01 \x01(\v2\x12.category.CategoryR\bcategory\"J\n" +
 	"\x14CategoryListResponse\x122\n" +
@@ -721,14 +732,15 @@ const file_products_category_proto_rawDesc = "" +
 	"\n" +
 	"categories\x18\x01 \x03(\v2!.category.CategoryWithIngredientsR\n" +
 	"categories\"\a\n" +
-	"\x05Empty2\xe0\x03\n" +
+	"\x05Empty2\xa7\x04\n" +
 	"\x0fCategoryService\x12E\n" +
 	"\x06Create\x12\x1f.category.CreateCategoryRequest\x1a\x1a.category.CategoryResponse\x12N\n" +
-	"\aGetByID\x12\x18.category.GetByIDRequest\x1a).category.CategoryWithIngredientsResponse\x12A\n" +
+	"\aGetByID\x12\x18.category.GetByIDRequest\x1a).category.CategoryWithIngredientsResponse\x12G\n" +
+	"\x0fGetCategoryByID\x12\x18.category.GetByIDRequest\x1a\x1a.category.CategoryResponse\x12n\n" +
+	"\x17GetByIDWithUserProducts\x12(.category.GetByIDWithUserProductsRequest\x1a).category.CategoryWithIngredientsResponse\x12A\n" +
 	"\x06GetAll\x12\x17.category.GetAllRequest\x1a\x1e.category.CategoryListResponse\x12E\n" +
 	"\x06Update\x12\x1f.category.UpdateCategoryRequest\x1a\x1a.category.CategoryResponse\x12:\n" +
-	"\x06Delete\x12\x1f.category.DeleteCategoryRequest\x1a\x0f.category.Empty\x12p\n" +
-	"\x16GetAllWithUserProducts\x12'.category.GetAllWithUserProductsRequest\x1a-.category.CategoryWithIngredientsListResponseB?Z=github.com/khbdev/what-food-proto/proto/categorypb;categorypbb\x06proto3"
+	"\x06Delete\x12\x1f.category.DeleteCategoryRequest\x1a\x0f.category.EmptyB?Z=github.com/khbdev/what-food-proto/proto/categorypb;categorypbb\x06proto3"
 
 var (
 	file_products_category_proto_rawDescOnce sync.Once
@@ -752,7 +764,7 @@ var file_products_category_proto_goTypes = []any{
 	(*GetAllRequest)(nil),                       // 5: category.GetAllRequest
 	(*UpdateCategoryRequest)(nil),               // 6: category.UpdateCategoryRequest
 	(*DeleteCategoryRequest)(nil),               // 7: category.DeleteCategoryRequest
-	(*GetAllWithUserProductsRequest)(nil),       // 8: category.GetAllWithUserProductsRequest
+	(*GetByIDWithUserProductsRequest)(nil),      // 8: category.GetByIDWithUserProductsRequest
 	(*CategoryResponse)(nil),                    // 9: category.CategoryResponse
 	(*CategoryListResponse)(nil),                // 10: category.CategoryListResponse
 	(*CategoryWithIngredientsResponse)(nil),     // 11: category.CategoryWithIngredientsResponse
@@ -767,18 +779,20 @@ var file_products_category_proto_depIdxs = []int32{
 	2,  // 4: category.CategoryWithIngredientsListResponse.categories:type_name -> category.CategoryWithIngredients
 	3,  // 5: category.CategoryService.Create:input_type -> category.CreateCategoryRequest
 	4,  // 6: category.CategoryService.GetByID:input_type -> category.GetByIDRequest
-	5,  // 7: category.CategoryService.GetAll:input_type -> category.GetAllRequest
-	6,  // 8: category.CategoryService.Update:input_type -> category.UpdateCategoryRequest
-	7,  // 9: category.CategoryService.Delete:input_type -> category.DeleteCategoryRequest
-	8,  // 10: category.CategoryService.GetAllWithUserProducts:input_type -> category.GetAllWithUserProductsRequest
-	9,  // 11: category.CategoryService.Create:output_type -> category.CategoryResponse
-	11, // 12: category.CategoryService.GetByID:output_type -> category.CategoryWithIngredientsResponse
-	10, // 13: category.CategoryService.GetAll:output_type -> category.CategoryListResponse
-	9,  // 14: category.CategoryService.Update:output_type -> category.CategoryResponse
-	13, // 15: category.CategoryService.Delete:output_type -> category.Empty
-	12, // 16: category.CategoryService.GetAllWithUserProducts:output_type -> category.CategoryWithIngredientsListResponse
-	11, // [11:17] is the sub-list for method output_type
-	5,  // [5:11] is the sub-list for method input_type
+	4,  // 7: category.CategoryService.GetCategoryByID:input_type -> category.GetByIDRequest
+	8,  // 8: category.CategoryService.GetByIDWithUserProducts:input_type -> category.GetByIDWithUserProductsRequest
+	5,  // 9: category.CategoryService.GetAll:input_type -> category.GetAllRequest
+	6,  // 10: category.CategoryService.Update:input_type -> category.UpdateCategoryRequest
+	7,  // 11: category.CategoryService.Delete:input_type -> category.DeleteCategoryRequest
+	9,  // 12: category.CategoryService.Create:output_type -> category.CategoryResponse
+	11, // 13: category.CategoryService.GetByID:output_type -> category.CategoryWithIngredientsResponse
+	9,  // 14: category.CategoryService.GetCategoryByID:output_type -> category.CategoryResponse
+	11, // 15: category.CategoryService.GetByIDWithUserProducts:output_type -> category.CategoryWithIngredientsResponse
+	10, // 16: category.CategoryService.GetAll:output_type -> category.CategoryListResponse
+	9,  // 17: category.CategoryService.Update:output_type -> category.CategoryResponse
+	13, // 18: category.CategoryService.Delete:output_type -> category.Empty
+	12, // [12:19] is the sub-list for method output_type
+	5,  // [5:12] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name
 	5,  // [5:5] is the sub-list for extension extendee
 	0,  // [0:5] is the sub-list for field type_name

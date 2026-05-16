@@ -45,8 +45,10 @@ message DeleteCategoryRequest {
   int64 id = 1;
 }
 
-message GetAllWithUserProductsRequest {
-  int64 user_id = 1;
+// Get category by category_id with ingredients filtered by user_id
+message GetByIDWithUserProductsRequest {
+  int64 category_id = 1;
+  int64 user_id = 2;
 }
 
 // ===== RESPONSES =====
@@ -72,12 +74,32 @@ message Empty {}
 // ===== SERVICE =====
 
 service CategoryService {
-  rpc Create(CreateCategoryRequest) returns (CategoryResponse);
-  rpc GetByID(GetByIDRequest) returns (CategoryWithIngredientsResponse);
-  rpc GetAll(GetAllRequest) returns (CategoryListResponse);
-  rpc Update(UpdateCategoryRequest) returns (CategoryResponse);
-  rpc Delete(DeleteCategoryRequest) returns (Empty);
 
-  rpc GetAllWithUserProducts(GetAllWithUserProductsRequest)
-      returns (CategoryWithIngredientsListResponse);
+  // Create category
+  rpc Create(CreateCategoryRequest)
+      returns (CategoryResponse);
+
+  // Get category with all ingredients
+  rpc GetByID(GetByIDRequest)
+      returns (CategoryWithIngredientsResponse);
+
+  // Get only category
+  rpc GetCategoryByID(GetByIDRequest)
+      returns (CategoryResponse);
+
+  // Get category with ingredients by user
+  rpc GetByIDWithUserProducts(GetByIDWithUserProductsRequest)
+      returns (CategoryWithIngredientsResponse);
+
+  // Get all categories
+  rpc GetAll(GetAllRequest)
+      returns (CategoryListResponse);
+
+  // Update category
+  rpc Update(UpdateCategoryRequest)
+      returns (CategoryResponse);
+
+  // Delete category
+  rpc Delete(DeleteCategoryRequest)
+      returns (Empty);
 }
