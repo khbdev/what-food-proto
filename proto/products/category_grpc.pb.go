@@ -24,6 +24,7 @@ const (
 	CategoryService_GetCategoryByID_FullMethodName         = "/category.CategoryService/GetCategoryByID"
 	CategoryService_GetByIDWithUserProducts_FullMethodName = "/category.CategoryService/GetByIDWithUserProducts"
 	CategoryService_GetAll_FullMethodName                  = "/category.CategoryService/GetAll"
+	CategoryService_GetAllWithUserProducts_FullMethodName  = "/category.CategoryService/GetAllWithUserProducts"
 	CategoryService_Update_FullMethodName                  = "/category.CategoryService/Update"
 	CategoryService_Delete_FullMethodName                  = "/category.CategoryService/Delete"
 )
@@ -42,6 +43,8 @@ type CategoryServiceClient interface {
 	GetByIDWithUserProducts(ctx context.Context, in *GetByIDWithUserProductsRequest, opts ...grpc.CallOption) (*CategoryWithIngredientsResponse, error)
 	// Get all categories
 	GetAll(ctx context.Context, in *GetAllRequest, opts ...grpc.CallOption) (*CategoryListResponse, error)
+	// Get all categories with ingredients by user
+	GetAllWithUserProducts(ctx context.Context, in *GetAllWithUserProductsRequest, opts ...grpc.CallOption) (*CategoryWithIngredientsListResponse, error)
 	// Update category
 	Update(ctx context.Context, in *UpdateCategoryRequest, opts ...grpc.CallOption) (*CategoryResponse, error)
 	// Delete category
@@ -106,6 +109,16 @@ func (c *categoryServiceClient) GetAll(ctx context.Context, in *GetAllRequest, o
 	return out, nil
 }
 
+func (c *categoryServiceClient) GetAllWithUserProducts(ctx context.Context, in *GetAllWithUserProductsRequest, opts ...grpc.CallOption) (*CategoryWithIngredientsListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CategoryWithIngredientsListResponse)
+	err := c.cc.Invoke(ctx, CategoryService_GetAllWithUserProducts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *categoryServiceClient) Update(ctx context.Context, in *UpdateCategoryRequest, opts ...grpc.CallOption) (*CategoryResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CategoryResponse)
@@ -140,6 +153,8 @@ type CategoryServiceServer interface {
 	GetByIDWithUserProducts(context.Context, *GetByIDWithUserProductsRequest) (*CategoryWithIngredientsResponse, error)
 	// Get all categories
 	GetAll(context.Context, *GetAllRequest) (*CategoryListResponse, error)
+	// Get all categories with ingredients by user
+	GetAllWithUserProducts(context.Context, *GetAllWithUserProductsRequest) (*CategoryWithIngredientsListResponse, error)
 	// Update category
 	Update(context.Context, *UpdateCategoryRequest) (*CategoryResponse, error)
 	// Delete category
@@ -168,6 +183,9 @@ func (UnimplementedCategoryServiceServer) GetByIDWithUserProducts(context.Contex
 }
 func (UnimplementedCategoryServiceServer) GetAll(context.Context, *GetAllRequest) (*CategoryListResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAll not implemented")
+}
+func (UnimplementedCategoryServiceServer) GetAllWithUserProducts(context.Context, *GetAllWithUserProductsRequest) (*CategoryWithIngredientsListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAllWithUserProducts not implemented")
 }
 func (UnimplementedCategoryServiceServer) Update(context.Context, *UpdateCategoryRequest) (*CategoryResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Update not implemented")
@@ -286,6 +304,24 @@ func _CategoryService_GetAll_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CategoryService_GetAllWithUserProducts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllWithUserProductsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServiceServer).GetAllWithUserProducts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CategoryService_GetAllWithUserProducts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServiceServer).GetAllWithUserProducts(ctx, req.(*GetAllWithUserProductsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CategoryService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateCategoryRequest)
 	if err := dec(in); err != nil {
@@ -348,6 +384,10 @@ var CategoryService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAll",
 			Handler:    _CategoryService_GetAll_Handler,
+		},
+		{
+			MethodName: "GetAllWithUserProducts",
+			Handler:    _CategoryService_GetAllWithUserProducts_Handler,
 		},
 		{
 			MethodName: "Update",
