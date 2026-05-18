@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.1
 // - protoc             v3.21.12
-// source: asosiy/feedback.proto
+// source: feedback/feedback.proto
 
 package nutritionpb
 
@@ -117,5 +117,5 @@ var MailService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "asosiy/feedback.proto",
+	Metadata: "feedback/feedback.proto",
 }

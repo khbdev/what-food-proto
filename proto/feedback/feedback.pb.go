@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v3.21.12
-// source: asosiy/feedback.proto
+// source: feedback/feedback.proto
 
 package nutritionpb
 
@@ -34,7 +34,7 @@ type DayNutrition struct {
 
 func (x *DayNutrition) Reset() {
 	*x = DayNutrition{}
-	mi := &file_asosiy_feedback_proto_msgTypes[0]
+	mi := &file_feedback_feedback_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -46,7 +46,7 @@ func (x *DayNutrition) String() string {
 func (*DayNutrition) ProtoMessage() {}
 
 func (x *DayNutrition) ProtoReflect() protoreflect.Message {
-	mi := &file_asosiy_feedback_proto_msgTypes[0]
+	mi := &file_feedback_feedback_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -59,7 +59,7 @@ func (x *DayNutrition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DayNutrition.ProtoReflect.Descriptor instead.
 func (*DayNutrition) Descriptor() ([]byte, []int) {
-	return file_asosiy_feedback_proto_rawDescGZIP(), []int{0}
+	return file_feedback_feedback_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *DayNutrition) GetDay() string {
@@ -106,7 +106,7 @@ type NutritionRequest struct {
 
 func (x *NutritionRequest) Reset() {
 	*x = NutritionRequest{}
-	mi := &file_asosiy_feedback_proto_msgTypes[1]
+	mi := &file_feedback_feedback_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -118,7 +118,7 @@ func (x *NutritionRequest) String() string {
 func (*NutritionRequest) ProtoMessage() {}
 
 func (x *NutritionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_asosiy_feedback_proto_msgTypes[1]
+	mi := &file_feedback_feedback_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -131,7 +131,7 @@ func (x *NutritionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NutritionRequest.ProtoReflect.Descriptor instead.
 func (*NutritionRequest) Descriptor() ([]byte, []int) {
-	return file_asosiy_feedback_proto_rawDescGZIP(), []int{1}
+	return file_feedback_feedback_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *NutritionRequest) GetDays() []*DayNutrition {
@@ -151,7 +151,7 @@ type NutritionResponse struct {
 
 func (x *NutritionResponse) Reset() {
 	*x = NutritionResponse{}
-	mi := &file_asosiy_feedback_proto_msgTypes[2]
+	mi := &file_feedback_feedback_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -163,7 +163,7 @@ func (x *NutritionResponse) String() string {
 func (*NutritionResponse) ProtoMessage() {}
 
 func (x *NutritionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_asosiy_feedback_proto_msgTypes[2]
+	mi := &file_feedback_feedback_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -176,7 +176,7 @@ func (x *NutritionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NutritionResponse.ProtoReflect.Descriptor instead.
 func (*NutritionResponse) Descriptor() ([]byte, []int) {
-	return file_asosiy_feedback_proto_rawDescGZIP(), []int{2}
+	return file_feedback_feedback_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *NutritionResponse) GetFeedback() string {
@@ -193,11 +193,11 @@ func (x *NutritionResponse) GetLevel() string {
 	return ""
 }
 
-var File_asosiy_feedback_proto protoreflect.FileDescriptor
+var File_feedback_feedback_proto protoreflect.FileDescriptor
 
-const file_asosiy_feedback_proto_rawDesc = "" +
+const file_feedback_feedback_proto_rawDesc = "" +
 	"\n" +
-	"\x15asosiy/feedback.proto\x12\tnutrition\"v\n" +
+	"\x17feedback/feedback.proto\x12\tnutrition\"v\n" +
 	"\fDayNutrition\x12\x10\n" +
 	"\x03day\x18\x01 \x01(\tR\x03day\x12\x12\n" +
 	"\x04kcal\x18\x02 \x01(\x05R\x04kcal\x12\x10\n" +
@@ -213,24 +213,24 @@ const file_asosiy_feedback_proto_rawDesc = "" +
 	"\x10AnalyzeNutrition\x12\x1b.nutrition.NutritionRequest\x1a\x1c.nutrition.NutritionResponseB\x1bZ\x19gen/nutrition;nutritionpbb\x06proto3"
 
 var (
-	file_asosiy_feedback_proto_rawDescOnce sync.Once
-	file_asosiy_feedback_proto_rawDescData []byte
+	file_feedback_feedback_proto_rawDescOnce sync.Once
+	file_feedback_feedback_proto_rawDescData []byte
 )
 
-func file_asosiy_feedback_proto_rawDescGZIP() []byte {
-	file_asosiy_feedback_proto_rawDescOnce.Do(func() {
-		file_asosiy_feedback_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_asosiy_feedback_proto_rawDesc), len(file_asosiy_feedback_proto_rawDesc)))
+func file_feedback_feedback_proto_rawDescGZIP() []byte {
+	file_feedback_feedback_proto_rawDescOnce.Do(func() {
+		file_feedback_feedback_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_feedback_feedback_proto_rawDesc), len(file_feedback_feedback_proto_rawDesc)))
 	})
-	return file_asosiy_feedback_proto_rawDescData
+	return file_feedback_feedback_proto_rawDescData
 }
 
-var file_asosiy_feedback_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_asosiy_feedback_proto_goTypes = []any{
+var file_feedback_feedback_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_feedback_feedback_proto_goTypes = []any{
 	(*DayNutrition)(nil),      // 0: nutrition.DayNutrition
 	(*NutritionRequest)(nil),  // 1: nutrition.NutritionRequest
 	(*NutritionResponse)(nil), // 2: nutrition.NutritionResponse
 }
-var file_asosiy_feedback_proto_depIdxs = []int32{
+var file_feedback_feedback_proto_depIdxs = []int32{
 	0, // 0: nutrition.NutritionRequest.days:type_name -> nutrition.DayNutrition
 	1, // 1: nutrition.MailService.AnalyzeNutrition:input_type -> nutrition.NutritionRequest
 	2, // 2: nutrition.MailService.AnalyzeNutrition:output_type -> nutrition.NutritionResponse
@@ -241,26 +241,26 @@ var file_asosiy_feedback_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_asosiy_feedback_proto_init() }
-func file_asosiy_feedback_proto_init() {
-	if File_asosiy_feedback_proto != nil {
+func init() { file_feedback_feedback_proto_init() }
+func file_feedback_feedback_proto_init() {
+	if File_feedback_feedback_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_asosiy_feedback_proto_rawDesc), len(file_asosiy_feedback_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_feedback_feedback_proto_rawDesc), len(file_feedback_feedback_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_asosiy_feedback_proto_goTypes,
-		DependencyIndexes: file_asosiy_feedback_proto_depIdxs,
-		MessageInfos:      file_asosiy_feedback_proto_msgTypes,
+		GoTypes:           file_feedback_feedback_proto_goTypes,
+		DependencyIndexes: file_feedback_feedback_proto_depIdxs,
+		MessageInfos:      file_feedback_feedback_proto_msgTypes,
 	}.Build()
-	File_asosiy_feedback_proto = out.File
-	file_asosiy_feedback_proto_goTypes = nil
-	file_asosiy_feedback_proto_depIdxs = nil
+	File_feedback_feedback_proto = out.File
+	file_feedback_feedback_proto_goTypes = nil
+	file_feedback_feedback_proto_depIdxs = nil
 }
