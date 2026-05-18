@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package nutrition;
+
+option go_package = "gen/nutrition;nutritionpb";
+
+// =======================
+// DATA MODEL
+// =======================
+
+message DayNutrition {
+  string day = 1;
+  int32 kcal = 2;
+  int32 fat = 3;
+  double carbs = 4;
+  int32 protein = 5;
+}
+
+// =======================
+// REQUEST (API Gateway -> Mail Service)
+// =======================
+
+message NutritionRequest {
+  repeated DayNutrition days = 1;
+}
+
+// =======================
+// RESPONSE (Mail Service -> API Gateway)
+// =======================
+
+message NutritionResponse {
+  string feedback = 1;
+  string level = 2;
+}
+
+// =======================
+// SERVICE
+// =======================
+
+service MailService {
+  rpc AnalyzeNutrition (NutritionRequest) returns (NutritionResponse);
+}
