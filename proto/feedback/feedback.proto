@@ -4,9 +4,9 @@ package nutrition;
 
 option go_package = "gen/nutrition;nutritionpb";
 
-// =======================
+// =========================
 // DATA MODEL
-// =======================
+// =========================
 
 message DayNutrition {
   string day = 1;
