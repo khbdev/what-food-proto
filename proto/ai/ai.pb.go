@@ -262,10 +262,10 @@ func (x *MealResponse) GetSteps() []string {
 type NutritionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Period        string                 `protobuf:"bytes,1,opt,name=period,proto3" json:"period,omitempty"`
-	AvgKcal       float32                `protobuf:"fixed32,2,opt,name=avg_kcal,json=avgKcal,proto3" json:"avg_kcal,omitempty"`
-	AvgProtein    float32                `protobuf:"fixed32,3,opt,name=avg_protein,json=avgProtein,proto3" json:"avg_protein,omitempty"`
-	AvgFat        float32                `protobuf:"fixed32,4,opt,name=avg_fat,json=avgFat,proto3" json:"avg_fat,omitempty"`
-	AvgCarbs      float32                `protobuf:"fixed32,5,opt,name=avg_carbs,json=avgCarbs,proto3" json:"avg_carbs,omitempty"`
+	AvgKcal       float64                `protobuf:"fixed64,2,opt,name=avg_kcal,json=avgKcal,proto3" json:"avg_kcal,omitempty"`
+	AvgProtein    float64                `protobuf:"fixed64,3,opt,name=avg_protein,json=avgProtein,proto3" json:"avg_protein,omitempty"`
+	AvgFat        float64                `protobuf:"fixed64,4,opt,name=avg_fat,json=avgFat,proto3" json:"avg_fat,omitempty"`
+	AvgCarbs      float64                `protobuf:"fixed64,5,opt,name=avg_carbs,json=avgCarbs,proto3" json:"avg_carbs,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -307,28 +307,28 @@ func (x *NutritionRequest) GetPeriod() string {
 	return ""
 }
 
-func (x *NutritionRequest) GetAvgKcal() float32 {
+func (x *NutritionRequest) GetAvgKcal() float64 {
 	if x != nil {
 		return x.AvgKcal
 	}
 	return 0
 }
 
-func (x *NutritionRequest) GetAvgProtein() float32 {
+func (x *NutritionRequest) GetAvgProtein() float64 {
 	if x != nil {
 		return x.AvgProtein
 	}
 	return 0
 }
 
-func (x *NutritionRequest) GetAvgFat() float32 {
+func (x *NutritionRequest) GetAvgFat() float64 {
 	if x != nil {
 		return x.AvgFat
 	}
 	return 0
 }
 
-func (x *NutritionRequest) GetAvgCarbs() float32 {
+func (x *NutritionRequest) GetAvgCarbs() float64 {
 	if x != nil {
 		return x.AvgCarbs
 	}
@@ -415,11 +415,11 @@ const file_ai_ai_proto_rawDesc = "" +
 	"\x05steps\x18\x05 \x03(\tR\x05steps\"\x9c\x01\n" +
 	"\x10NutritionRequest\x12\x16\n" +
 	"\x06period\x18\x01 \x01(\tR\x06period\x12\x19\n" +
-	"\bavg_kcal\x18\x02 \x01(\x02R\aavgKcal\x12\x1f\n" +
-	"\vavg_protein\x18\x03 \x01(\x02R\n" +
+	"\bavg_kcal\x18\x02 \x01(\x01R\aavgKcal\x12\x1f\n" +
+	"\vavg_protein\x18\x03 \x01(\x01R\n" +
 	"avgProtein\x12\x17\n" +
-	"\aavg_fat\x18\x04 \x01(\x02R\x06avgFat\x12\x1b\n" +
-	"\tavg_carbs\x18\x05 \x01(\x02R\bavgCarbs\"E\n" +
+	"\aavg_fat\x18\x04 \x01(\x01R\x06avgFat\x12\x1b\n" +
+	"\tavg_carbs\x18\x05 \x01(\x01R\bavgCarbs\"E\n" +
 	"\x11NutritionResponse\x12\x1a\n" +
 	"\bfeedback\x18\x01 \x01(\tR\bfeedback\x12\x14\n" +
 	"\x05level\x18\x02 \x01(\tR\x05level2~\n" +

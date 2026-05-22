@@ -38,10 +38,10 @@ message MealResponse {
 // Nutrition
 message NutritionRequest {
   string period = 1;
-  float avg_kcal = 2;
-  float avg_protein = 3;
-  float avg_fat = 4;
-  float avg_carbs = 5;
+  double avg_kcal = 2;
+  double avg_protein = 3;
+  double avg_fat = 4;
+  double avg_carbs = 5;
 }
 
 message NutritionResponse {
