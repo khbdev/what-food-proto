@@ -24,10 +24,10 @@ const (
 type DayNutrition struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Day           string                 `protobuf:"bytes,1,opt,name=day,proto3" json:"day,omitempty"`
-	Kcal          int32                  `protobuf:"varint,2,opt,name=kcal,proto3" json:"kcal,omitempty"`
-	Fat           int32                  `protobuf:"varint,3,opt,name=fat,proto3" json:"fat,omitempty"`
+	Kcal          float64                `protobuf:"fixed64,2,opt,name=kcal,proto3" json:"kcal,omitempty"`
+	Fat           float64                `protobuf:"fixed64,3,opt,name=fat,proto3" json:"fat,omitempty"`
 	Carbs         float64                `protobuf:"fixed64,4,opt,name=carbs,proto3" json:"carbs,omitempty"`
-	Protein       int32                  `protobuf:"varint,5,opt,name=protein,proto3" json:"protein,omitempty"`
+	Protein       float64                `protobuf:"fixed64,5,opt,name=protein,proto3" json:"protein,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -69,14 +69,14 @@ func (x *DayNutrition) GetDay() string {
 	return ""
 }
 
-func (x *DayNutrition) GetKcal() int32 {
+func (x *DayNutrition) GetKcal() float64 {
 	if x != nil {
 		return x.Kcal
 	}
 	return 0
 }
 
-func (x *DayNutrition) GetFat() int32 {
+func (x *DayNutrition) GetFat() float64 {
 	if x != nil {
 		return x.Fat
 	}
@@ -90,7 +90,7 @@ func (x *DayNutrition) GetCarbs() float64 {
 	return 0
 }
 
-func (x *DayNutrition) GetProtein() int32 {
+func (x *DayNutrition) GetProtein() float64 {
 	if x != nil {
 		return x.Protein
 	}
@@ -200,10 +200,10 @@ const file_feedback_feedback_proto_rawDesc = "" +
 	"\x17feedback/feedback.proto\x12\tnutrition\"v\n" +
 	"\fDayNutrition\x12\x10\n" +
 	"\x03day\x18\x01 \x01(\tR\x03day\x12\x12\n" +
-	"\x04kcal\x18\x02 \x01(\x05R\x04kcal\x12\x10\n" +
-	"\x03fat\x18\x03 \x01(\x05R\x03fat\x12\x14\n" +
+	"\x04kcal\x18\x02 \x01(\x01R\x04kcal\x12\x10\n" +
+	"\x03fat\x18\x03 \x01(\x01R\x03fat\x12\x14\n" +
 	"\x05carbs\x18\x04 \x01(\x01R\x05carbs\x12\x18\n" +
-	"\aprotein\x18\x05 \x01(\x05R\aprotein\"?\n" +
+	"\aprotein\x18\x05 \x01(\x01R\aprotein\"?\n" +
 	"\x10NutritionRequest\x12+\n" +
 	"\x04days\x18\x01 \x03(\v2\x17.nutrition.DayNutritionR\x04days\"E\n" +
 	"\x11NutritionResponse\x12\x1a\n" +
