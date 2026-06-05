@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package dashboard;
+
+option go_package = "github.com/khbdev/what-food-proto/proto/dashboard;dashboardpb";
+
+service UserDashboardService {
+  rpc GetDashboardStats (Empty) returns (DashboardStatsResponse);
+}
+
+message Empty {}
+
+message DashboardStatsResponse {
+  int64 total_users = 1;
+  int64 active_users = 2;
+  repeated CityStat city_stats = 3;
+}
+
+message CityStat {
+  string city = 1;
+  int64 count = 2;
+}
