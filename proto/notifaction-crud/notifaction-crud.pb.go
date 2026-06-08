@@ -24,7 +24,7 @@ const (
 // CORE MODEL
 type Notification struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
 	ImageUrl      string                 `protobuf:"bytes,4,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
@@ -64,11 +64,11 @@ func (*Notification) Descriptor() ([]byte, []int) {
 	return file_notifaction_crud_notifaction_crud_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Notification) GetId() string {
+func (x *Notification) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
-	return ""
+	return 0
 }
 
 func (x *Notification) GetTitle() string {
@@ -106,7 +106,7 @@ func (x *Notification) GetUpdatedAt() int64 {
 	return 0
 }
 
-// WRAPPER RESPONSE (SEN SO‘RAGAN NARSA)
+// WRAPPER RESPONSE
 type NotificationResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Notification  *Notification          `protobuf:"bytes,1,opt,name=notification,proto3" json:"notification,omitempty"`
@@ -151,7 +151,7 @@ func (x *NotificationResponse) GetNotification() *Notification {
 	return nil
 }
 
-// CREATE
+// CREATE (ID YO‘Q!)
 type CreateNotificationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
@@ -215,7 +215,7 @@ func (x *CreateNotificationRequest) GetImageUrl() string {
 // READ BY ID
 type GetNotificationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -250,11 +250,11 @@ func (*GetNotificationRequest) Descriptor() ([]byte, []int) {
 	return file_notifaction_crud_notifaction_crud_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetNotificationRequest) GetId() string {
+func (x *GetNotificationRequest) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
-	return ""
+	return 0
 }
 
 // LIST
@@ -357,7 +357,7 @@ func (x *GetNotificationsResponse) GetNotifications() []*Notification {
 // UPDATE
 type UpdateNotificationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
 	Description   string                 `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
 	ImageUrl      string                 `protobuf:"bytes,4,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
@@ -395,11 +395,11 @@ func (*UpdateNotificationRequest) Descriptor() ([]byte, []int) {
 	return file_notifaction_crud_notifaction_crud_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateNotificationRequest) GetId() string {
+func (x *UpdateNotificationRequest) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
-	return ""
+	return 0
 }
 
 func (x *UpdateNotificationRequest) GetTitle() string {
@@ -426,7 +426,7 @@ func (x *UpdateNotificationRequest) GetImageUrl() string {
 // DELETE
 type DeleteNotificationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -461,11 +461,11 @@ func (*DeleteNotificationRequest) Descriptor() ([]byte, []int) {
 	return file_notifaction_crud_notifaction_crud_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *DeleteNotificationRequest) GetId() string {
+func (x *DeleteNotificationRequest) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
-	return ""
+	return 0
 }
 
 type DeleteNotificationResponse struct {
@@ -518,7 +518,7 @@ const file_notifaction_crud_notifaction_crud_proto_rawDesc = "" +
 	"\n" +
 	"'notifaction-crud/notifaction-crud.proto\x12\fnotification\"\xb1\x01\n" +
 	"\fNotification\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1b\n" +
 	"\timage_url\x18\x04 \x01(\tR\bimageUrl\x12\x1d\n" +
@@ -533,19 +533,19 @@ const file_notifaction_crud_notifaction_crud_proto_rawDesc = "" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x1b\n" +
 	"\timage_url\x18\x03 \x01(\tR\bimageUrl\"(\n" +
 	"\x16GetNotificationRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"G\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\"G\n" +
 	"\x17GetNotificationsRequest\x12\x14\n" +
 	"\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n" +
 	"\x06offset\x18\x02 \x01(\x05R\x06offset\"\\\n" +
 	"\x18GetNotificationsResponse\x12@\n" +
 	"\rnotifications\x18\x01 \x03(\v2\x1a.notification.NotificationR\rnotifications\"\x80\x01\n" +
 	"\x19UpdateNotificationRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1b\n" +
 	"\timage_url\x18\x04 \x01(\tR\bimageUrl\"+\n" +
 	"\x19DeleteNotificationRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"6\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\"6\n" +
 	"\x1aDeleteNotificationResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess2\x84\x04\n" +
 	"\x13NotificationService\x12a\n" +
